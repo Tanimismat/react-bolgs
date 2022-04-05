@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { getByPlaceholderText } from "@testing-library/react";
+import { useEffect, useState } from "react";
 import Bloglist from "../Bloglist";
 
 const Home = () => {
@@ -9,12 +10,21 @@ const Home = () => {
 
     ])
 
+    const handleDelete = (id) => {
+        console.log('clicked');
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs);
+    }
+
+    useEffect(() => {
+        console.log('use effect ran')
+    });
+
 
     return (
         <div className="home">
-            <Bloglist
-                blogs={blogs}
-                title="All Blogs!"></Bloglist>
+            <Bloglist blogs={blogs} title="All Blogs" handleDelete={handleDelete}></Bloglist>
+            {/* <Bloglist blogs={blogs.filter((blog) => blog.author === 'mario')} title="Mario's Blogs"></Bloglist> */}
         </div>
     );
 }

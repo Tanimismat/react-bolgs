@@ -1,15 +1,14 @@
-import './App.css';
+import Home from './Components/Home/Home';
+import Navbar from './Components/Navbar/Navbar';
+
 
 function App() {
-  const title = 'Welcome to the new blog';
-  const likes = 50;
 
   return (
     <div className="App">
+      <Navbar></Navbar>
       <div className="content">
-        {/* dynamic values in template */}
-        <h1>{title}</h1>
-        <p>Liked {likes} times</p>
+        <Home></Home>
       </div>
     </div>
   );
